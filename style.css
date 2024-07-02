@@ -1,12 +1,34 @@
-/* body{
-    margin: 0;
-    background-image: url(images/background\(KRUSH\).png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-    text-align: center;
+body {
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./images/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-#user-input{
-    size: 2rem;
-} */
+.container {
+  margin: 20px auto 0;
+  padding: 50px 20px 70px;
+  border: 1px solid #d8d9de;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 100%;
+}
+
+#result-gif {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#result-gif-img {
+  max-width: 50%;  /* 너비를 50%로 줄임 */
+  max-height: 200px;  /* 높이를 200px로 제한 */
+  height: auto;
+  display: none;
+}
