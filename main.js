@@ -9,7 +9,6 @@ let chanceArea = document.getElementById("chance-area");
 let inputnumbArea = document.getElementById("input-numb");
 let answerArea = document.getElementById("answer");
 let resultGifImg = document.getElementById("result-gif-img");
-let backgroundMusic = document.getElementById("background-music");
 let history = [];
 
 playButton.addEventListener("click", play);
@@ -18,12 +17,6 @@ userInput.addEventListener("focus", function () {
     userInput.value = "";
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    backgroundMusic.play().catch(error => {
-        console.error("자동 재생이 차단되었습니다. 사용자가 상호작용할 때 재생을 시도합니다.", error);
-    });
-    resultArea.textContent = ""; // 초기 상태에서 result-area 비우기
-});
 
 function pickRandomNum() {
     computerNum = Math.floor(Math.random() * 100) + 1;
@@ -32,7 +25,14 @@ function pickRandomNum() {
 }
 
 function play() {
-    let userValue = parseInt(userInput.value);
+    let userValue = userInput.value;
+
+    if (userValue === "") {
+        resultArea.textContent = "숫자를 입력해주세요.";
+        return;
+    }
+
+    userValue = parseInt(userValue);
 
     if (userValue < 1 || userValue > 100) {
         resultArea.textContent = "1과 100 사이의 숫자를 입력해주세요.";
