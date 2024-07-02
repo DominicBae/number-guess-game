@@ -15,8 +15,12 @@ playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
 userInput.addEventListener("focus", function () {
     userInput.value = "";
+    resultArea.textContent = ""; // 초기 상태에서 result-area 비우기
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    resultArea.textContent = ""; // 초기 상태에서 result-area 비우기
+});
 
 function pickRandomNum() {
     computerNum = Math.floor(Math.random() * 100) + 1;
