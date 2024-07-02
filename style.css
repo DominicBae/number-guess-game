@@ -5,7 +5,7 @@
 
 body {
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,13 +13,14 @@ body {
   background-image: url(./images/bg.jpg);
   background-repeat: no-repeat;
   background-position: center;
+  margin: 0; 
 }
 
 .container {
   width: var(--container-size);
   max-width: var(--max-container-size);
   height: auto;
-  margin: 20px auto 0;
+  margin: 20px auto;
   padding: 50px 20px 70px;
   border: 1px solid #d8d9de;
   background-color: rgba(255, 255, 255, 0.85);
@@ -29,10 +30,11 @@ body {
 
 .title {
   font-family: "Black Han Sans", sans-serif;
-  font-weight: 400;
+  font-weight: 600; /* 굵기 설정 */
   font-style: normal;
-  font-size: 60px;
+  font-size: 50px;
   word-break: keep-all;
+  white-space: nowrap;
 }
 
 #answer {
@@ -84,6 +86,7 @@ audio {
   }
 
   .title {
-    font-size: 40px; 
+    font-size: 35px; 
+    white-space: normal; 
   }
 }

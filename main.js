@@ -14,12 +14,15 @@ let history = [];
 
 playButton.addEventListener("click", play);
 resetButton.addEventListener("click", reset);
-userInput.addEventListener("focus", function () { userInput.value = ""; });
+userInput.addEventListener("focus", function () {
+    userInput.value = "";
+});
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     backgroundMusic.play().catch(error => {
         console.error("자동 재생이 차단되었습니다. 사용자가 상호작용할 때 재생을 시도합니다.", error);
     });
+    resultArea.textContent = ""; // 초기 상태에서 result-area 비우기
 });
 
 function pickRandomNum() {
@@ -46,15 +49,15 @@ function play() {
     console.log("chances", chances);
 
     if (userValue < computerNum) {
-        resultGifImg.src = "./images/up.gif"; 
+        resultGifImg.src = "./images/up.gif";
         resultGifImg.style.display = "block";
         resultArea.textContent = "끌어 올려!";
     } else if (userValue > computerNum) {
-        resultGifImg.src = "./images/down.gif"; 
+        resultGifImg.src = "./images/down.gif";
         resultGifImg.style.display = "block";
         resultArea.textContent = "내리게 해줄게!";
     } else {
-        resultGifImg.src = "./images/correct.gif"; 
+        resultGifImg.src = "./images/correct.gif";
         resultGifImg.style.display = "block";
         resultArea.textContent = "진실의 방으로!";
         gameOver = true;
@@ -82,7 +85,7 @@ function reset() {
     chanceArea.textContent = `남은 기회: ${chances}번`;
     inputnumbArea.textContent = `당신이 입력한 숫자는: ${history.join(", ")}`;
     playButton.disabled = false;
-    resultArea.textContent = "";
+    resultArea.textContent = ""; // 리셋할 때도 result-area 비우기
     resultGifImg.style.display = "none";
 }
 
